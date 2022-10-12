@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="min-h-full font-Poppins box-border">
     <Navigation />
     <router-view />
   </div>

@@ -5,6 +5,12 @@
         <img class="w-14" src="../assets/images/dumbbell-light.png" alt="">
         <h1 class="text-lg">Active Tracker</h1>
       </div>
+      <ul class="flex flex-1 justify-end gap-x-10">
+        <RouterLink class="cursor-pointer" :to="{ name: 'Home' }">Home</RouterLink>
+        <RouterLink class="cursor-pointer" :to="{ name: '' }">Create</RouterLink>
+        <RouterLink class="cursor-pointer" :to="{ name: '' }">Login</RouterLink>
+        <li class="cursor-pointer">Logout</li>
+      </ul>
     </nav>
   </header>
 </template>
