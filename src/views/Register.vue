@@ -23,7 +23,7 @@
         <input type="password" required class="p-2 text-gray-500 focus:outline-none" id="password" v-model="password"/>
       </div>
 
-      <!-- password confirm form -->
+      <!-- password confirmation form -->
       <div class="flex flex-col mb-2">
         <label for="confirmPassword" class="mb-1 text-sm text-at-light-green">Confirm Password</label>
         <input type="password" required class="p-2 text-gray-500 focus:outline-none" id="confirmPassword" v-model="confirmPassword"/>
@@ -34,11 +34,16 @@
         Register
       </button>
 
+      <!-- Redirect link to login -->
+      <RouterLink class="text-sm mt-6 text-center" :to="{ name: 'Login' }">
+        Already have an account? <span class="text-at-light-green">Login</span>
+      </RouterLink>
 
     </form>
   </div>
 </template>
 
+<!-- Script -->
 <script>
 import { ref } from "vue";
 
