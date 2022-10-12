@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import Navigation from './components/Navigation.vue'
+
 export default {
   setup() {
     // Create data / vars
