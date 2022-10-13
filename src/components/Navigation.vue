@@ -9,7 +9,7 @@
         <router-link class="cursor-pointer" :to="{ name: 'Home' }">
           Home
         </router-link>
-        <router-link v-if="user" class="cursor-pointer" :to="{ name: '' }">
+        <router-link v-if="user" class="cursor-pointer" :to="{ name: 'Create' }">
           Create
         </router-link>
         <router-link v-if="!user" class="cursor-pointer" :to="{ name: 'Login' }">
