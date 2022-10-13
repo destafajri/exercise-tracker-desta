@@ -163,7 +163,7 @@ export default {
       addExercise();
     };
 
-    // Create workout
+    // Create workout connection to database
     const createWorkout = async () => {
       try {
         const { error } = await supabase.from("workouts").insert([
