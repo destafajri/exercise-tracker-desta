@@ -13,8 +13,10 @@
 
       <!-- email input form -->
       <div class="flex flex-col mb-2">
-        <label for="email" class="mb-1 text-sm text-at-light-green">Email</label>
-        <input type="text" required class="p-2 text-gray-500 focus:outline-none" id="email" v-model="email"/>
+        <label for="email" class="mb-1 text-sm text-at-light-green">
+          Email
+        </label>
+        <input type="email" required class="p-2 text-gray-500 focus:outline-none" id="email" v-model="email"/>
       </div>
 
       <!-- password input form -->

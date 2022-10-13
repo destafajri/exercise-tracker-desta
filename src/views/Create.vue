@@ -29,7 +29,7 @@
           </label>
           <!-- workout option -->
           <select id="workout-type" class="p-2 text-gray-500 focus:outline-none" required @change="workoutChange" v-model="workoutType">
-            <option value="select-workout">Select Workout</option>
+            <!-- <option value="select-workout">Select Workout</option> -->
             <option value="strength">Strength Training</option>
             <option value="cardio">Cardio</option>
           </select>
@@ -45,18 +45,22 @@
               <input required type="text" class="p-2 w-full text-gray-500 focus:outline-none" v-model="item.exercise"/>
             </div>
             <div class="flex flex-col flex-1">
-              <label for="sets" class="mb-1 text-sm text-at-light-green">Sets </label>
-              <input required type="text" class="p-2 w-full text-gray-500 focus:outline-none" v-model="item.sets"/>
+              <label for="sets" class="mb-1 text-sm text-at-light-green">
+                Sets
+              </label>
+              <input required type="number" class="p-2 w-full text-gray-500 focus:outline-none" v-model="item.sets"/>
             </div>
             <div class="flex flex-col flex-1">
-              <label for="reps" class="mb-1 text-sm text-at-light-green">Reps </label>
-              <input required type="text" class="p-2 w-full text-gray-500 focus:outline-none" v-model="item.reps"/>
+              <label for="reps" class="mb-1 text-sm text-at-light-green">
+                Reps
+              </label>
+              <input required type="number" class="p-2 w-full text-gray-500 focus:outline-none" v-model="item.reps"/>
             </div>
             <div class="flex flex-col flex-1">
               <label for="weight" class="mb-1 text-sm text-at-light-green">
-                Weight (LB's)
+                Weight (Kgs)
               </label>
-              <input required type="text" class="p-2 w-full text-gray-500 focus:outline-none" v-model="item.weight"/>
+              <input required type="number" class="p-2 w-full text-gray-500 focus:outline-none" v-model="item.weight"/>
             </div>
             <img @click="deleteExercise(item.id)" src="@/assets/images/trash-light-green.png" class="h-4 w-auto absolute -left-5 cursor-pointer" alt=""/>
           </div>
@@ -73,26 +77,28 @@
                 Type
               </label>
               <select id="cardio-type" class="p-2 w-full text-gray-500 focus:outline-none" v-model="item.cardioType">
-                <option value="#">Select Type</option>
+                <!-- <option value="#">Select Type</option> -->
                 <option value="run">Runs</option>
                 <option value="walk">Walk</option>
               </select>
             </div>
             <div class="flex flex-col flex-1">
-              <label for="distance" class="mb-1 text-sm text-at-light-green"
-                >Distance
+              <label for="distance" class="mb-1 text-sm text-at-light-green">
+                Distance(km)
               </label>
-              <input required type="text" class="p-2 w-full text-gray-500 focus:outline-none" v-model="item.distance"/>
+              <input required type="number" class="p-2 w-full text-gray-500 focus:outline-none" v-model="item.distance"/>
             </div>
             <div class="flex flex-col flex-1">
               <label for="duration" class="mb-1 text-sm text-at-light-green">
-                Duration
+                Duration(min)
               </label>
-              <input required type="text" class="p-2 w-full text-gray-500 focus:outline-none" v-model="item.duration"/>
+              <input required type="number" class="p-2 w-full text-gray-500 focus:outline-none" v-model="item.duration"/>
             </div>
             <div class="flex flex-col flex-1">
-              <label for="pace" class="mb-1 text-sm text-at-light-green">Pace </label>
-              <input required type="text" class="p-2 w-full text-gray-500 focus:outline-none" v-model="item.pace"/>
+              <label for="pace" class="mb-1 text-sm text-at-light-green">
+                Pace(km/h)
+              </label>
+              <input required type="number" class="p-2 w-full text-gray-500 focus:outline-none" v-model="item.pace"/>
             </div>
             <img @click="deleteExercise(item.id)" src="@/assets/images/trash-light-green.png" class="h-4 w-auto absolute -left-5 cursor-pointer" alt=""/>
           </div>
