@@ -6,15 +6,14 @@
     </div>
 
     <!-- Registration -->
-    <form class="p-8 flex flex-col bg-light-grey rounded-md shadow-lg">
-
+    <form @submit.prevent="register" class="p-8 flex flex-col bg-light-grey rounded-md shadow-lg">
       <!-- Register title -->
       <h1 class="text-3xl text-at-light-green mb-4">Register Here</h1>
 
       <!-- email input form -->
       <div class="flex flex-col mb-2">
         <label for="email" class="mb-1 text-sm text-at-light-green">Email</label>
-        <input type="text" required class="p-2 text-gray-500 focus:outline-none" id="email" v-model="email"/>
+        <input type="email" required class="p-2 text-gray-500 focus:outline-none" id="email" v-model="email"/>
       </div>
 
       <!-- password input form -->
@@ -35,9 +34,9 @@
       </button>
 
       <!-- Redirect link to login -->
-      <RouterLink class="text-sm mt-6 text-center" :to="{ name: 'Login' }">
+      <router-link class="text-sm mt-6 text-center" :to="{ name: 'Login' }">
         Already have an account? <span class="text-at-light-green">Login</span>
-      </RouterLink>
+      </router-link>
 
     </form>
   </div>
@@ -46,18 +45,44 @@
 <!-- Script -->
 <script>
 import { ref } from "vue";
+import { supabase } from "../supabase/init";
+import { useRouter } from "vue-router";
 
 export default {
   name: "register",
   setup() {
     // Create data / vars
-    const email = ref(null)
-    const password = ref(null)
-    const confirmPassword = ref(null)
-    const errorMsg = ref(null) 
-    // Register function
+    const router = useRouter();
+    const email = ref(null);
+    const password = ref(null);
+    const confirmPassword = ref(null);
+    const errorMsg = ref(null);
 
-    return {email, password, confirmPassword, errorMsg};
+    // Register function
+    const register = async () => {
+      if (password.value === confirmPassword.value) {
+        try {
+          const { error } = await supabase.auth.signUp({
+            email: email.value,
+            password: password.value,
+          });
+          if (error) throw error;
+          router.push({ name: "Login" });
+        } catch (error) {
+          errorMsg.value = error.message;
+          setTimeout(() => {
+            errorMsg.value = null;
+          }, 5000);
+        }
+        return;
+      }
+      errorMsg.value = "Error: Passwords do not match";
+      setTimeout(() => {
+        errorMsg.value = null;
+      }, 5000);
+    };
+
+    return { email, password, confirmPassword, errorMsg, register };
   },
 };
 </script>
