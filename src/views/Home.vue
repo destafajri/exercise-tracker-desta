@@ -2,6 +2,7 @@
   <div v-if="dataLoaded" class="container mt-10 px-4">
     <!-- No Data -->
     <div v-if="data.length === 0" class="w-full flex flex-col items-center">
+      <h2 class="text-2xl">Welcome to Desta Excercise Tracker apps</h2>
       <h1 class="text-2xl">Looks empty here...</h1>
       <router-link
         class="mt-6 py-2 px-6 rounded-sm  text-sm
